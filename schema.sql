@@ -49,10 +49,20 @@ CREATE TABLE vets (
 );
 
 -- creating table named specializations
+
 CREATE TABLE specializations(
     id SERIAL PRIMARY KEY NOT NULL,
     vets_name VARCHAR(100),
     species_name VARCHAR(100)
+);
+
+-- creating a table named visits
+
+CREATE TABLE visits(
+    id SERIAL PRIMARY KEY NOT NULL,
+    animal_names VARCHAR(100),
+    vets_name VARCHAR(100),
+    date_of_visit DATE
 );
 
 
