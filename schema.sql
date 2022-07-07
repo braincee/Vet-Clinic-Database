@@ -34,4 +34,8 @@ ALTER TABLE animals DROP COLUMN species;
 
 ALTER TABLE animals ADD COLUMN species_id FOREIGN KEY REFERENCES species(id);
 
+-- Add column owner_id which is a foreign key referencing owners table
+
+ALTER TABLE animals ADD COLUMN owneer_id BIGINT REFERENCES owners(id);
+
 
