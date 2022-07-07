@@ -91,3 +91,12 @@ JOIN owners ON owners.id = animals.owner_id WHERE owners.full_name = 'Dean Winch
 
 SELECT O.full_name AS OWNER, COUNT(a.name) AS TOTAL_ANIMALS FROM owners AS O LEFT JOIN animals AS A
 ON A.owner_id = O.id GROUP BY O.full_name ORDER BY COUNT(A.name) DESC LIMIT 1;
+
+-- Write queries to answer the following:
+
+-- Who was the last animal seen by William Tatcher ?
+
+SELECT vets.name AS vets_name, animals.name AS animal_name, visits.date_of_visit AS date_of_visit FROM vets
+INNER JOIN visits ON vets.id = visits.vet_id INNER JOIN animals ON animals.id = visits.animal_id WHERE vets.name = 'William Tatcher'
+ORDER BY visits.date_of_visit DESC LIMIT 1;
+

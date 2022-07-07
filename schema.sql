@@ -50,18 +50,16 @@ CREATE TABLE vets (
 
 -- creating table named specializations
 
-CREATE TABLE specializations(
-    id SERIAL PRIMARY KEY NOT NULL,
-    vets_name VARCHAR(100),
-    species_name VARCHAR(100)
+CREATE TABLE specializations (
+    vet_id INTEGER REFERENCES vets (id),
+    species_id INTEGER REFERENCES species (id)
 );
 
 -- creating a table named visits
 
-CREATE TABLE visits(
-    id SERIAL PRIMARY KEY NOT NULL,
-    animal_names VARCHAR(100),
-    vets_name VARCHAR(100),
+CREATE TABLE visits (
+    animal_id INTEGER REFERENCES animals (id),
+    vet_id INTEGER REFERENCES vets (id),
     date_of_visit DATE
 );
 

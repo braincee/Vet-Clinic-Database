@@ -126,31 +126,34 @@ VALUES ('William Tatcher', 45, '2000-04-23'),
 
 -- insert data into specializations table
 
-INSERT INTO specializations (vets_name, species_name) 
-VALUES ('William Tatcher','Pokemon'),
-       ('Stephanie Mendez','Digimon,Pokemon'),
-       ('Jack Harkness','Digimon');
+INSERT INTO specializations (vet_id, species_id)
+VALUES (1, 1),
+       (3, 2),
+       (3, 1),
+       (4, 2);
+
 
 -- insert data into visits table
 
-INSERT INTO visits (animal_names, vets_name, date_of_visit) 
-VALUES ('Agumon','William Tatcher','2020-05-25'),
-       ('Agumon','Stephanie Mendez','2020-07-22'),
-       ('Gabumon','Jack Harkness','2021-02-02'),
-       ('Pikachu','Maisy Smith','2020-01-05'),
-       ('Pikachu','Maisy Smith','2020-03-08'),
-       ('Pikachu','Maisy Smith','2020-05-14'),
-       ('Devimon','Stephanie Mendez','2021-05-04'),
-       ('Charmander','Jack Harkness','2021-02-24'),
-       ('Plantmon','Maisy Smith','2019-12-21'),
-       ('Plantmon','William Tatcher','2020-04-10'),
-       ('Squirtle','Stephanie Mendez','2020-09-29'),
-       ('Angemon','Jack Harkness','2020-10-03'),
-       ('Angemon','Jack Harkness','2020-11-04'),
-       ('Boarmon','Maisy Smith','2019-01-24'),
-       ('Boarmon','Maisy Smith','2019-05-15'),
-       ('Boarmon','Maisy Smith','2020-02-27'),
-       ('Boarmon','Maisy Smith','2019-01-24'),
-       ('Boarmon','Maisy Smith','2020-08-03'),
-       ('Blossom','Stephanie Mendaz','2020-05-24'),
-       ('Blossom','Willia, Tatcher','2021-01-11');
+INSERT INTO visits (animal_id, vet_id, date_of_visit)
+VALUES
+(1, 1, DATE '2020-05-24'),
+(1, 3, DATE '2020-07-22'),
+(2, 4, DATE '2021-02-02'),
+(3, 2, DATE '2020-01-05'),
+(3, 2, DATE '2020-03-08'),
+(3, 2, DATE '2020-05-14'),
+(4, 3, DATE '2021-05-04'),
+(5, 4, DATE '2021-02-24'),
+(6, 2, DATE '2019-12-21'),
+(6, 1, DATE '2020-08-10'),
+(6, 2, DATE '2021-04-07'),
+(7, 3, DATE '2019-09-29'),
+(8, 4, DATE '2020-10-03'),
+(8, 4, DATE '2020-11-04'),
+(9, 2, DATE '2019-01-24'),
+(9, 2, DATE '2019-05-15'),
+(9, 2, DATE '2020-02-27'),
+(9, 2, DATE '2020-08-03'),
+(10, 3, DATE '2020-05-24'),
+(10, 1, DATE '2021-01-11');
