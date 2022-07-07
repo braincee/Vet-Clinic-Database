@@ -123,4 +123,10 @@ VALUES ('William Tatcher', 45, '2000-04-23'),
         ('Maisy Smith', 26, '2019-01-17'),
         ('Stephanie Mendez', 64, '1981-05-04'),
         ('Jack Harkness', 38, '2008-06-08');
-        
+
+-- insert data into specializations table
+
+INSERT INTO specializations(vets_name,species_name) 
+values ('William Tatcher','Pokemon'),
+       ('Stephanie Mendez','Digimon,Pokemon'),
+       ('Jack Harkness','Digimon');
