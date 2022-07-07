@@ -100,3 +100,8 @@ SELECT vets.name AS vets_name, animals.name AS animal_name, visits.date_of_visit
 INNER JOIN visits ON vets.id = visits.vet_id INNER JOIN animals ON animals.id = visits.animal_id WHERE vets.name = 'William Tatcher'
 ORDER BY visits.date_of_visit DESC LIMIT 1;
 
+-- How many different animals did Stephanie Mendez see ?
+
+SELECT vets.name AS vets_name, COUNT(DISTINCT visits.animal_id) AS seen_animals FROM vets INNER JOIN visits 
+ON vets.id = visits.vet_id WHERE vets.name = 'Stephanie Mendez' GROUP BY vets.name;
+
