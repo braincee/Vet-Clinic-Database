@@ -26,3 +26,12 @@ CREATE TABLE species(
     name VARCHAR(100)
 );
 
+-- removing column species from table animals
+
+ALTER TABLE animals DROP COLUMN species;
+
+-- adding column species_id which is a foreign key referencing species table
+
+ALTER TABLE animals ADD COLUMN species_id FOREIGN KEY REFERENCES species(id);
+
+
