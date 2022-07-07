@@ -39,3 +39,13 @@ ALTER TABLE animals ADD COLUMN species_id FOREIGN KEY REFERENCES species(id);
 ALTER TABLE animals ADD COLUMN owneer_id BIGINT REFERENCES owners(id);
 
 
+-- Creating a table named vets
+
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(100),
+    age INTEGER,
+    date_of_graduation DATE
+);
+
+
