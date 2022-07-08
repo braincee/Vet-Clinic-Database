@@ -120,3 +120,10 @@ vets.name = 'Stephanie Mendez' AND visits.date_of_visit BETWEEN '2020-04-01' AND
 
 SELECT animals.name AS animal_name, COUNT(animals.id) AS most_visits FROM visits
 INNER JOIN animals ON visits.animal_id = animals.id GROUP BY animals.name ORDER BY COUNT(animals.id) DESC LIMIT 1;
+
+-- Who was Maisy Smith's first visit?
+
+SELECT vets.name AS vets_name, visits.date_of_visit AS date_of_visit FROM vets
+INNER JOIN visits ON vets.id = visits.vet_id WHERE vets.name = 'Maisy Smith' ORDER BY visits.date_of_visit
+LIMIT 1;
+
