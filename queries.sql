@@ -102,6 +102,11 @@ ORDER BY visits.date_of_visit DESC LIMIT 1;
 
 -- How many different animals did Stephanie Mendez see ?
 
-SELECT vets.name AS vets_name, COUNT(DISTINCT visits.animal_id) AS seen_animals FROM vets INNER JOIN visits 
+SELECT vets.name AS vets_name, COUNT(visits.animal_id) AS seen_animals FROM vets INNER JOIN visits 
 ON vets.id = visits.vet_id WHERE vets.name = 'Stephanie Mendez' GROUP BY vets.name;
+
+-- List all vets and their spcialties, including vets with no specialties.
+
+SELECT vets.name AS vets_name, species.name AS specialties FROM vets LEFT JOIN specializations ON vets.id = specializations.vet_id
+LEFT JOIN species ON specializations.species_id = species.id;
 
