@@ -142,5 +142,12 @@ specializations.species_id AS species_specialities FROM visits JOIN animals ON a
 ON visits.vet_id = specializations.vet_id JOIN vets ON visits.vet_id = vets.id GROUP BY visits.animal_id, visits.vet_id, animals.name,
 specializations.species_id, vets.name ORDER BY COUNT(visits.animal_id) DESC LIMIT 1;
 
+-- What specialty should Maisy Smith consider getting? Look for the species she gets the most.
+
+SELECT vets.name AS vets_name, species.name AS species_type, COUNT(visits.animal_id) AS number_of_visits FROM visits
+INNER JOIN vets ON visits.vet_id = vets.id INNER JOIN animals ON visits.animal_id = animals.id INNER JOIN species ON 
+animals.species_id = species.id WHERE vets.name = 'Maisy Smith' GROUP BY vets.name, animals.species_id, species.name 
+ORDER BY animals.species_id DESC LIMIT 1;
+
 
 
