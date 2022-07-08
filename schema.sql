@@ -8,3 +8,59 @@ CREATE TABLE animals (
     neutered BOOLEAN NOT NULL,
     weight_kg DECIMAL NOT NULL
 );
+
+ALTER TABLE animals ADD COLUMN species VARCHAR(100);
+
+-- creating owners table
+
+CREATE TABLE owners (
+    id SERIAL PRIMARY KEY NOT NULL,
+    full_name VARCHAR(300);
+    age INTEGER
+);
+
+-- creating species table
+
+CREATE TABLE species(
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(100)
+);
+
+-- removing column species from table animals
+
+ALTER TABLE animals DROP COLUMN species;
+
+-- adding column species_id which is a foreign key referencing species table
+
+ALTER TABLE animals ADD COLUMN species_id FOREIGN KEY REFERENCES species(id);
+
+-- Add column owner_id which is a foreign key referencing owners table
+
+ALTER TABLE animals ADD COLUMN owneer_id BIGINT REFERENCES owners(id);
+
+
+-- Creating a table named vets
+
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(100),
+    age INTEGER,
+    date_of_graduation DATE
+);
+
+-- creating table named specializations
+
+CREATE TABLE specializations (
+    vet_id INTEGER REFERENCES vets (id),
+    species_id INTEGER REFERENCES species (id)
+);
+
+-- creating a table named visits
+
+CREATE TABLE visits (
+    animal_id INTEGER REFERENCES animals (id),
+    vet_id INTEGER REFERENCES vets (id),
+    date_of_visit DATE
+);
+
+
