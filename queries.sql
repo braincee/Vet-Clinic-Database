@@ -127,3 +127,11 @@ SELECT vets.name AS vets_name, visits.date_of_visit AS date_of_visit FROM vets
 INNER JOIN visits ON vets.id = visits.vet_id WHERE vets.name = 'Maisy Smith' ORDER BY visits.date_of_visit
 LIMIT 1;
 
+-- Details for most recent visit: animal information, vet information, and date of visit.
+
+SELECT animals.name AS animal_name, animals.date_of_birth AS date_of_birth, animals.escape_attempts AS escape_attempts, 
+animals.neutered AS neutered, animals.weight_kg AS weight_kg, species.name AS species_type, vets.name AS vets_name, 
+vets.age AS vets_age, vets.date_of_graduation AS date_of_graduation, visits.date_of_visit AS date_of_visit FROM visits 
+INNER JOIN animals ON visits.animal_id = animals.id INNER JOIN species ON animals.species_id = species.id
+INNER JOIN vets ON visits.vet_id = vets.id ORDER BY visits.date_of_visit DESC LIMIT 1;
+
