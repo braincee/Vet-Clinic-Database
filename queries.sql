@@ -115,3 +115,8 @@ LEFT JOIN species ON specializations.species_id = species.id;
 SELECT vets.name AS vets_name, animals.name AS animal_name, visits.date_of_visit AS date_of_visit FROM vets
 INNER JOIN visits ON vets.id = visits.vet_id INNER JOIN animals ON visits.animal_id = animals.id WHERE 
 vets.name = 'Stephanie Mendez' AND visits.date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
+
+-- What animal has the most visits to vets?
+
+SELECT animals.name AS animal_name, COUNT(animals.id) AS most_visits FROM visits
+INNER JOIN animals ON visits.animal_id = animals.id GROUP BY animals.name ORDER BY COUNT(animals.id) DESC LIMIT 1;
