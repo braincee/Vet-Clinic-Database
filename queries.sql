@@ -110,3 +110,8 @@ ON vets.id = visits.vet_id WHERE vets.name = 'Stephanie Mendez' GROUP BY vets.na
 SELECT vets.name AS vets_name, species.name AS specialties FROM vets LEFT JOIN specializations ON vets.id = specializations.vet_id
 LEFT JOIN species ON specializations.species_id = species.id;
 
+-- List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
+
+SELECT vets.name AS vets_name, animals.name AS animal_name, visits.date_of_visit AS date_of_visit FROM vets
+INNER JOIN visits ON vets.id = visits.vet_id INNER JOIN animals ON visits.animal_id = animals.id WHERE 
+vets.name = 'Stephanie Mendez' AND visits.date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
